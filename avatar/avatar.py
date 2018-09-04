@@ -12,7 +12,7 @@ import re
 
 def process_avatar(url):
     if ".gif" in url:
-        new_url = re.sub("\?size\=\d+$", "", url)
+        new_url = re.sub("\?size\=\d+.*", "", url)
         return new_url
     else:
         new_url = url.replace('.webp', '.png')
