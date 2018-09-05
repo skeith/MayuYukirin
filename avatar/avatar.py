@@ -12,7 +12,7 @@ import re
 
 def process_avatar(url):
     if ".gif" in url:
-        new_url = re.sub("\?size\=\d+.*", "", url)
+        new_url = re.sub("\?size\=\d+.*", "?size=2048", url)
         return new_url
     else:
         new_url = url.replace('.webp', '.png')
@@ -24,7 +24,11 @@ class Avatar:
 
     @commands.command()
     async def avatar(self, ctx, *, user: discord.Member=None):
-        """Returns user avatar URL."""
+        """Returns user avatar URL.
+        
+        User argument can be user mention, nickname, username, user ID.
+        Default to yourself when no argument is supplied.
+        """
         author = ctx.author
 
         if not user:
