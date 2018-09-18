@@ -57,7 +57,7 @@ class Doujin:
             async with self.session.get(url) as r:
                 await ctx.send(r.url)
 
-    async def is_nsfw(self, channel: discord.Channel):
+    async def is_nsfw(self, channel: discord.abc.GuildChannel):
         try:
             _gid = channel.guild.id
         except AttributeError:
