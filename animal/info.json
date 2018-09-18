@@ -1,0 +1,10 @@
+{
+    "author" : "Eslyium (Eslyium#1949) and Yukirin (Yukirin#0048)",
+    "install_msg" : "Thank you for installing my Animal module. Type `[p]help Animal` for more information.",
+    "name" : "Animal",
+    "short" : "Post animal pics",
+    "description" : "Post animal pics from API sites",
+    "disabled" : false,
+    "tags" : ["animal", "image", "picture", "cat", "dog", "fox", "pug"],
+    "min_python_version": [3, 6, 0]
+}
