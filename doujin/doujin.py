@@ -17,8 +17,8 @@ class Doujin:
         self.session = aiohttp.ClientSession()
 
     @commands.group(autohelp=True)
-    @command.guild_only()
-    @command.is_nsfw()
+    @commands.guild_only()
+    @commands.is_nsfw()
     async def doujin(self, ctx):
         """Doujin commands"""
         pass
@@ -42,7 +42,7 @@ class Doujin:
     @doujin.command()
     async def hbrowse(self, ctx):
         """Sends a random doujin"""
-        
+
         url = "http://www.hbrowse.com/random"
         async with self.session.get(url) as r:
             await ctx.send(r.url)
