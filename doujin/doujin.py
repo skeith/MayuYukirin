@@ -14,6 +14,7 @@ class Doujin:
     """Doujin commands."""
 
     def __init__(self, bot):
+        self.bot = bot
         self.session = aiohttp.ClientSession()
 
     @commands.group()
