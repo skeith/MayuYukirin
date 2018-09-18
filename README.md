@@ -3,7 +3,7 @@ Cogs for Red Discord Bot v3 authored by Yukirin#0048
 &nbsp;  
 
 ### Table of contents
-* [Installation Instruction](#installation-isntruction)  
+* [Installation Instruction](#installation-instruction)  
     * [Adding the Repository](#adding-the-repository-to-your-bot)  
     * [Listing Cogs](#listing-available-cogs)  
     * [Installing Cog](#installing-a-cog)  
