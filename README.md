@@ -2,8 +2,17 @@
 Cogs for Red Discord Bot v3 authored by Yukirin#0048  
 &nbsp;  
 
+### Table of contents
+* [Installation Instruction](#installation-isntruction)  
+    * [Adding the Repository](#adding-the-repository-to-your-bot)  
+    * [Listing Cogs](#listing-available-cogs)  
+    * [Installing Cog](#installing-a-cog)  
+* [Cog Summaries](#cog-summaries)  
+* [Cog Documentations](#cog-documentations)
+* [Feature Request/Suggestion/Issue](#feature-requestssuggestions-and-issuesbugs)  
+* [Contributing](#contributing)  
+* [Credits](#credits)
 
-****  
 
 ## Installation instruction
 ### Adding the repository to your bot
@@ -33,6 +42,20 @@ Once installation done (the bot will tell you when the installation is finished 
 `[p]load avatar`  
 ****
 
+## Cog Summaries
+
+| Cog Name | Description | Note |
+| -------- | ----------- | ---- |
+| Animal | Post random animal picture(s) | |
+| Avatar | Simply return user's avatar URL | |
+| Doujin | Post random Doujin | Must use NSFW channel |
+****
+
+## Cog Documentations
+
+Soon<sup>TM</sup>
+****
+
 ## Feature Requests/Suggestions and Issues/Bugs
 
 If you have suggestions to be added/changed or found issues/bugs while using one of my cogs, please make a Github Issue on this repository (Issue format will be implemented soon).
@@ -49,4 +72,4 @@ Have any idea to be added on my cogs or know the solution for a problem in my co
 
 ## Credits
 
-TBA
+Soon<sup>TM</sup>
