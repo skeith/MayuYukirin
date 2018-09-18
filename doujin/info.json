@@ -1,0 +1,10 @@
+{
+    "author" : "Eslyium (Eslyium#1949) and Yukirin (Yukirin#0048)",
+    "install_msg" : "Thank you for installing my Doujin module. Type `[p]help Doujin` for more information.",
+    "name" : "Doujin",
+    "short" : "Post random doujin (NSFW)",
+    "description" : "Post random doujin (NSFW) from selected site",
+    "disabled" : false,
+    "tags" : ["nsfw", "doujin", "image"],
+    "min_python_version": [3, 6, 0]
+}
