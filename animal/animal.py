@@ -38,7 +38,7 @@ class Animal:
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def cats(self, amount : int = 5):
+    async def cats(self, ctx, amount : int = 5):
         """Throws a cat bomb!
 
         Defaults to 5, max is 10"""
@@ -67,7 +67,7 @@ class Animal:
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def dogs(self, amount : int = 5):
+    async def dogs(self, ctx, amount : int = 5):
         """Throws a dog bomb!
 
         Defaults to 5, max is 10"""
@@ -96,7 +96,7 @@ class Animal:
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def foxes(self, amount : int = 5):
+    async def foxes(self, ctx, amount : int = 5):
         """Throws a fox bomb!
 
         Defaults to 5, max is 10"""
@@ -125,7 +125,7 @@ class Animal:
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def pugs(self, amount : int = 5):
+    async def pugs(self, ctx, amount : int = 5):
         """Throws a pugs bomb!
 
         Defaults to 5, max is 10"""
