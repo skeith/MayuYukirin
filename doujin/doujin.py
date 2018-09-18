@@ -22,7 +22,7 @@ class Doujin:
         pass
 
     @doujin.command(no_pm=True)
-    async def nhentai(self):
+    async def nhentai(self, ctx):
         """Sends a random doujin"""
 
         channel_nsfw = await self.is_nsfw(ctx.message.channel)
@@ -34,7 +34,7 @@ class Doujin:
                 await ctx.send(r.url)
 			
     @doujin.command(no_pm=True)
-    async def tsumino(self):
+    async def tsumino(self, ctx):
         """Sends a random doujin"""
 
         channel_nsfw = await self.is_nsfw(ctx.message.channel)
@@ -46,7 +46,7 @@ class Doujin:
                 await ctx.send(r.url)
 			
     @doujin.command(no_pm=True)
-    async def hbrowse(self):
+    async def hbrowse(self, ctx):
         """Sends a random doujin"""
 
         channel_nsfw = await self.is_nsfw(ctx.message.channel)
