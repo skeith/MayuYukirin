@@ -1,0 +1,10 @@
+{
+    "author" : "Yukirin (Yukirin#0048)",
+    "install_msg" : "Thank you for installing my PDA module. Type `[p]help PDA` for more information.",
+    "name" : "PDA",
+    "short" : "Show your affection to other member",
+    "description" : "Show your affection to other member. Current version only allow you to pat other member",
+    "disabled" : false,
+    "tags" : ["love", "affection", "pat"],
+    "min_python_version": [3, 6, 0]
+}
