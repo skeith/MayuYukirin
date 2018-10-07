@@ -18,8 +18,9 @@ def process_avatar(url):
         new_url = url.replace('.webp', '.png')
         return new_url
 
+BaseCog = getattr(commands, "Cog", object)
 
-class Avatar:
+class Avatar(BaseCog):
     """Get user's avatar URL."""
 
     @commands.command()
