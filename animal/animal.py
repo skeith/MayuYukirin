@@ -14,8 +14,9 @@ dog = "https://dog.ceo/api/breeds/image/random"
 fox = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 pug = "http://pugme.herokuapp.com/random"
 
+BaseCog = getattr(commands, "Cog", object)
 
-class Animal:
+class Animal(BaseCog):
     """Animal commands."""
 
     def __init__(self, bot):
