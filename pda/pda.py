@@ -50,6 +50,7 @@ patmsgs = [
     "Without hesitation, **{author}** pats **{user}** with love"
 ]
 
+
 class PDA(BaseCog):
     """Public Display of Affection ~!"""
 
