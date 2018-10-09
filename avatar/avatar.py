@@ -20,6 +20,7 @@ def process_avatar(url):
 
 BaseCog = getattr(commands, "Cog", object)
 
+
 class Avatar(BaseCog):
     """Get user's avatar URL."""
 
