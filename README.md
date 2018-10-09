@@ -11,7 +11,7 @@ Cogs for Red Discord Bot v3 authored by Yukirin#0048
 * [Cog Documentations](#cog-documentations)
 * [Feature Request/Suggestion/Issue](#feature-requestssuggestions-and-issuesbugs)  
 * [Contributing](#contributing)  
-* [Credits](#credits)
+* [Credits and Special Thanks](#credits-and-special-thanks)
 
 
 ## Installation instruction
@@ -38,7 +38,7 @@ Pick one cog name of the available cog list from above command. For this example
 
 The cog installation will be started. Any requirements will be automatically installed.
 
-Once installation done (the bot will tell you when the installation is finished and sucessful) you can load the cog with this command  
+Once installation done (the bot will tell you when the installation is finished and successful) you can load the cog with this command  
 `[p]load avatar`  
 ****
 
@@ -46,10 +46,10 @@ Once installation done (the bot will tell you when the installation is finished 
 
 | Cog Name | Description | Note |
 | -------- | ----------- | ---- |
-| Animal | <details><summary>Post random animal picture(s).</summary> Allows you to post these animal : cat, dog, fox, pug.</details> | |
-| Avatar | <details><summary>Simply return user's avatar URL.</summary> Sorry to fail your expectation. This cog has no extra description.</details> | |
-| Doujin | <details><summary>Post random Doujin.</summary> Fetch post from : nhentai, tsumino, hbrowse.</details> | Must use NSFW channel. |
-| PDA | <details><summary>Public Display of Affection.</summary> This allow you to show your affection to other member with animated GIF. Currently only have `pat` command</details> | |
+| animal | <details><summary>Post random animal picture(s).</summary> Allows you to post these animal : cat, dog, fox, pug.</details> | |
+| avatar | <details><summary>Simply return user's avatar URL.</summary> Sorry to fail your expectation. This cog has no extra description.</details> | |
+| doujin | <details><summary>Post random Doujin.</summary> Fetch post from : nhentai, tsumino, hbrowse.</details> | Must use NSFW channel. |
+| pda | <details><summary>Public Display of Affection.</summary> This allow you to show your affection to other member with animated GIF. Currently only have `pat` command</details> | |
 ****
 
 ## Cog Documentations
@@ -61,7 +61,7 @@ Soon<sup>TM</sup>
 
 If you have suggestions to be added/changed or found issues/bugs while using one of my cogs, please make a Github Issue on this repository (Issue format will be implemented soon).
 
-I can also be contacted on Red Discord Bot main server and cog server (my discord handle is at the beginning of this README).
+I can also be contacted on Red Discord Bot main server and cog server (my discord handle is at the [beginning](#mayuyukirin) of this README).
 ****
 
 
@@ -71,6 +71,7 @@ Have any idea to be added on my cogs or know the solution for a problem in my co
 ****
 
 
-## Credits
+## Credits and Special Thanks
 
-Soon<sup>TM</sup>
+* [Eslyium](https://github.com/Eslyium) for allowing me to take over these cogs ([since V2](https://github.com/Eslyium/Eslyium-Cogs)) : animal, doujin, feed, slap.  
+* aikaterna, Redjumpman, UltimatePancake, Crossedfall, Bollo, Johnny and the rest of ~~cool kids club~~ printer cat fans for helping me.
