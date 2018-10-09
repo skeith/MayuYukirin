@@ -9,8 +9,10 @@ from redbot.core import commands
 # Libs
 import aiohttp
 
+BaseCog = getattr(commands, "Cog", object)
 
-class Doujin:
+
+class Doujin(BaseCog):
     """Doujin commands."""
 
     def __init__(self, bot):
