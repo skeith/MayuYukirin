@@ -11,6 +11,7 @@ import aiohttp
 
 BaseCog = getattr(commands, "Cog", object)
 
+
 class Doujin(BaseCog):
     """Doujin commands."""
 
