@@ -16,6 +16,7 @@ pug = "http://pugme.herokuapp.com/random"
 
 BaseCog = getattr(commands, "Cog", object)
 
+
 class Animal(BaseCog):
     """Animal commands."""
 
