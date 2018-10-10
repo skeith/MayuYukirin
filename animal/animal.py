@@ -30,7 +30,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def cat(self):
+    async def cat(self, ctx):
         """Shows a cat"""
         try:
             async with self.session.get(self.catapi) as r:
@@ -59,7 +59,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def dog(self):
+    async def dog(self, ctx):
         """Shows a dog"""
         try:
             async with self.session.get(self.dogapi) as r:
@@ -88,7 +88,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def fox(self):
+    async def fox(self, ctx):
         """Shows a fox"""
         try:
             async with self.session.get(self.foxapi) as r:
@@ -117,7 +117,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def pug(self):
+    async def pug(self, ctx):
         """Shows a pug"""
         try:
             async with self.session.get(self.pugapi) as r:
