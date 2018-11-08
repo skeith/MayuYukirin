@@ -9,7 +9,7 @@ from redbot.core import commands
 # Libs
 import aiohttp
 
-cat = "http://random.cat/meow"
+cat = "http://aws.random.cat/meow"
 dog = "https://dog.ceo/api/breeds/image/random"
 fox = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 pug = "http://pugme.herokuapp.com/random"
