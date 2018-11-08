@@ -9,17 +9,10 @@ from redbot.core import commands
 # Libs
 import aiohttp
 
-<<<<<<< HEAD
-cat = "http://aws.random.cat/meow"
-dog = "https://dog.ceo/api/breeds/image/random"
-fox = "http://wohlsoft.ru/images/foxybot/randomfox.php"
-pug = "http://pugme.herokuapp.com/random"
-=======
-catapi = "http://random.cat/meow"
+catapi = "http://aws.random.cat/meow"
 dogapi = "https://dog.ceo/api/breeds/image/random"
 foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 pugapi = "http://pugme.herokuapp.com/random"
->>>>>>> 46c774d305dfd28af55318ddbcfdb78aaeec8f58
 
 BaseCog = getattr(commands, "Cog", object)
 
