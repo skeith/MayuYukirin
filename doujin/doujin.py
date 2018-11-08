@@ -16,7 +16,8 @@ class Doujin(BaseCog):
     """Doujin commands."""
 
     def __init__(self, bot):
-        self.session = aiohttp.ClientSession()
+        self.bot = bot
+        self.session = aiohttp.ClientSession(loop=self.bot.loop)
 
     @commands.group(autohelp=True)
     @commands.guild_only()
@@ -49,4 +50,7 @@ class Doujin(BaseCog):
         async with self.session.get(url) as r:
             await ctx.send(r.url)
 
+    def __unload(self):
+        self.bot.loop.create_task(self.session.close())
 
+    __del__ = __unload
