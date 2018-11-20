@@ -36,6 +36,7 @@ class Avatar(BaseCog):
         if not user:
             user = author
 
-        u = user.avatar_url
-        url = process_avatar(u)
+        u = await ctx.bot.get_user_info(user.id)
+        url0 = u.avatar_url
+        url = process_avatar(url0)
         await ctx.send("{}'s Avatar URL : {}".format(user.name, url))
