@@ -7,16 +7,7 @@ import discord
 from redbot.core import commands
 
 # Libs
-import re
 
-
-def process_avatar(url):
-    if ".gif" in url:
-        new_url = re.sub("\?size\=\d+.*", "?size=2048", url)
-        return new_url
-    else:
-        new_url = url.replace('.webp', '.png')
-        return new_url
 
 BaseCog = getattr(commands, "Cog", object)
 
@@ -27,7 +18,7 @@ class Avatar(BaseCog):
     @commands.command()
     async def avatar(self, ctx, *, user: discord.Member=None):
         """Returns user avatar URL.
-        
+
         User argument can be user mention, nickname, username, user ID.
         Default to yourself when no argument is supplied.
         """
@@ -36,7 +27,9 @@ class Avatar(BaseCog):
         if not user:
             user = author
 
-        u = await ctx.bot.get_user_info(user.id)
-        url0 = u.avatar_url
-        url = process_avatar(url0)
+        if user.is_avatar_animated():
+            url = user.avatar_url_as(format="gif")
+        if not user.is_avatar_animated():
+            url = user.avatar_url_as(static_format="png")
+
         await ctx.send("{}'s Avatar URL : {}".format(user.name, url))
