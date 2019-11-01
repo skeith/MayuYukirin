@@ -1,5 +1,5 @@
 {
-    "author" : "Yukirin (Yukirin#0048)",
+    "author" : ["Yukirin (Yukirin#0048)"],
     "install_msg" : "Thank you for installing my PDA module. Type `[p]help PDA` for more information.",
     "name" : "PDA",
     "short" : "Show your affection to other member",
