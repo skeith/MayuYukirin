@@ -1,5 +1,5 @@
 {
-    "author" : "Eslyium (Eslyium#1949) and Yukirin (Yukirin#0048)",
+    "author" : ["Eslyium (Eslyium#1949)", "Yukirin (Yukirin#0048)"],
     "install_msg" : "Thank you for installing my Animal module. Type `[p]help Animal` for more information.",
     "name" : "Animal",
     "short" : "Post animal pics",
