@@ -50,7 +50,7 @@ class Doujin(BaseCog):
         async with self.session.get(url) as r:
             await ctx.send(r.url)
 
-    def __unload(self):
+    def cog_unload(self):
         self.bot.loop.create_task(self.session.close())
 
-    __del__ = __unload
+    __del__ = cog_unload
