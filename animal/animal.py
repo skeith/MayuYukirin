@@ -35,7 +35,7 @@ class Animal(BaseCog):
         try:
             async with self.session.get(self.catapi) as r:
                 result = await r.json()
-            await ctx.send(result['url'])
+            await ctx.send(result[0])
         except:
             await ctx.send("API Error")
 
@@ -52,7 +52,7 @@ class Animal(BaseCog):
             for x in range(0,amount):
                 async with self.session.get(self.catapi) as r:
                     api_result = await r.json()
-                    results.append(api_result['url'])
+                    results.append(api_result[0])
             await ctx.send("\n".join(results))
         except:
             await ctx.send("API Error")
