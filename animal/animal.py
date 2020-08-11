@@ -9,7 +9,7 @@ from redbot.core import commands
 # Libs
 import aiohttp
 
-catapi = "http://aws.random.cat/meow"
+catapi = "https://shibe.online/api/cats"
 dogapi = "https://dog.ceo/api/breeds/image/random"
 foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 pugapi = "http://pugme.herokuapp.com/random"
@@ -35,7 +35,7 @@ class Animal(BaseCog):
         try:
             async with self.session.get(self.catapi) as r:
                 result = await r.json()
-            await ctx.send(result['file'])
+            await ctx.send(result['url'])
         except:
             await ctx.send("API Error")
 
@@ -52,7 +52,7 @@ class Animal(BaseCog):
             for x in range(0,amount):
                 async with self.session.get(self.catapi) as r:
                     api_result = await r.json()
-                    results.append(api_result['file'])
+                    results.append(api_result['url'])
             await ctx.send("\n".join(results))
         except:
             await ctx.send("API Error")
