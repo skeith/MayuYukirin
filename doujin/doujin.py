@@ -17,7 +17,7 @@ class Doujin(BaseCog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.session = aiohttp.ClientSession(loop=self.bot.loop)
+        self.session = aiohttp.ClientSession()
 
     @commands.group(autohelp=True)
     @commands.guild_only()

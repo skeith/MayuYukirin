@@ -22,7 +22,7 @@ class Animal(BaseCog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.session = aiohttp.ClientSession(loop=self.bot.loop)
+        self.session = aiohttp.ClientSession()
         self.catapi = catapi
         self.dogapi = dogapi
         self.foxapi = foxapi
