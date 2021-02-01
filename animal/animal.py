@@ -37,7 +37,7 @@ class Animal(BaseCog):
                 result = await r.json()
             await ctx.send(result[0])
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
@@ -55,7 +55,7 @@ class Animal(BaseCog):
                     results.append(api_result[0])
             await ctx.send("\n".join(results))
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -66,7 +66,7 @@ class Animal(BaseCog):
                 result = await r.json()
             await ctx.send(result['message'])
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
@@ -84,7 +84,7 @@ class Animal(BaseCog):
                     results.append(api_result['message'])
             await ctx.send("\n".join(results))
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -95,7 +95,7 @@ class Animal(BaseCog):
                 result = await r.json()
             await ctx.send(result['file'])
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
@@ -113,7 +113,7 @@ class Animal(BaseCog):
                     results.append(api_result['file'])
             await ctx.send("\n".join(results))
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -124,7 +124,7 @@ class Animal(BaseCog):
                 result = await r.json()
             await ctx.send(result['pug'])
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
@@ -142,7 +142,7 @@ class Animal(BaseCog):
                     results.append(api_result['pug'])
             await ctx.send("\n".join(results))
         except:
-            await ctx.send("API Error")
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
     def cog_unload(self):
         self.bot.loop.create_task(self.session.close())
