@@ -13,6 +13,7 @@ catapi = "https://shibe.online/api/cats"
 dogapi = "https://dog.ceo/api/breeds/image/random"
 foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 pugapi = "http://pugme.herokuapp.com/random"
+bigcat = "http://randombig.cat/roar.json"
 
 BaseCog = getattr(commands, "Cog", object)
 
@@ -27,6 +28,7 @@ class Animal(BaseCog):
         self.dogapi = dogapi
         self.foxapi = foxapi
         self.pugapi = pugapi
+        self.bigcat = bigcat
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -140,6 +142,35 @@ class Animal(BaseCog):
                 async with self.session.get(self.pugapi) as r:
                     api_result = await r.json()
                     results.append(api_result['pug'])
+            await ctx.send("\n".join(results))
+        except:
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
+
+    @commands.command()
+    @commands.cooldown(1, 60, commands.BucketType.guild)
+    async def bigcat(self, ctx):
+        """Shows a bigcat"""
+        try:
+            async with self.session.get(self.bigcat) as r:
+                result = await r.json()
+            await ctx.send(result['url'])
+        except:
+            await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
+
+    @commands.command()
+    @commands.cooldown(1, 120, commands.BucketType.guild)
+    async def pugs(self, ctx, amount : int = 5):
+        """Throws a bigcat bomb!
+
+        Defaults to 5, max is 10"""
+        results = []
+        if amount > 10 or amount < 1:
+            amount = 5
+        try:
+            for x in range(0,amount):
+                async with self.session.get(self.bigcat) as r:
+                    api_result = await r.json()
+                    results.append(api_result['url'])
             await ctx.send("\n".join(results))
         except:
             await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
