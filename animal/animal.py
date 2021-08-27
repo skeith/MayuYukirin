@@ -67,11 +67,11 @@ class Animal(BaseCog):
         else:
             api = self.dog_breed_api.format(breed)
         try:
-            async with self.session.get(self.dogapi) as r:
+            async with self.session.get(api) as r:
                 result = await r.json()
             await ctx.send(result['message'])
         except Exception:
-            await ctx.send("You provided an invalid breed, or the API might not be working.")
+            await ctx.send(self.error_message)
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
