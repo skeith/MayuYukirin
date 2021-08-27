@@ -12,7 +12,7 @@ import aiohttp
 catapi = "https://shibe.online/api/cats"
 dogapi = "https://dog.ceo/api/breeds/image/random"
 foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
-pugapi = "http://pugme.herokuapp.com/random"
+pugapi = "https://dog.ceo/api/breed/pug/images/random" # Old Pug API, just in case it came back up : http://pugme.herokuapp.com/random
 roarapi = "http://randombig.cat/roar.json"
 
 BaseCog = getattr(commands, "Cog", object)
@@ -124,7 +124,7 @@ class Animal(BaseCog):
         try:
             async with self.session.get(self.pugapi) as r:
                 result = await r.json()
-            await ctx.send(result['pug'])
+            await ctx.send(result['message'])
         except:
             await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
 
@@ -141,7 +141,7 @@ class Animal(BaseCog):
             for x in range(0,amount):
                 async with self.session.get(self.pugapi) as r:
                     api_result = await r.json()
-                    results.append(api_result['pug'])
+                    results.append(api_result['message'])
             await ctx.send("\n".join(results))
         except:
             await ctx.send("API Error. Probably just a hiccup.\nIf this error persist for several days, please report it")
