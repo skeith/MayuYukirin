@@ -54,7 +54,7 @@ class Animal(BaseCog):
         except:
             await ctx.send(self.error_message)
 
-    @commands.commands()
+    @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
     async def dog(self, ctx, breed: str):
         """Shows a breed of dog.
