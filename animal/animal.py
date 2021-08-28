@@ -77,10 +77,11 @@ class Animal(BaseCog):
                 async with self.session.get("https://dog.ceo/api/breeds/list/all") as r:
                     result = await r.json()
                     result = result["message"]
-                    print(type(result))
+            except Exception:
+                await ctx.send(self.error_message)
+            else:
                 breed_list = [i for i, _ in filter(lambda x: not bool(x[-1]), list(result.items()))]
                 embed_pages = []
-                print(breed_list)
                 c = list(chunks(breed_list, 10))
                 for page in c:
                     embed = discord.Embed(
@@ -91,9 +92,6 @@ class Animal(BaseCog):
                     embed.set_footer(text=f"Page {c.index(page)+1}/{len(c)}")
                     embed_pages.append(embed)
                 await menu(ctx, embed_pages, DEFAULT_CONTROLS)
-            except Exception as e:
-                await ctx.send(e)
-                await ctx.send(self.error_message)
 
             return
                 
