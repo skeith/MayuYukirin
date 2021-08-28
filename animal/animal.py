@@ -78,7 +78,7 @@ class Animal(BaseCog):
                     else:
                         breed_list.append(key)
                 embed_pages = []
-                for page in pagify(", ".join(breed_list)m delims=[","]):
+                for page in pagify(", ".join(breed_list), delims=[","]):
                     embed = discord.Embed(
                         title="Breeds list",
                         description=page,
