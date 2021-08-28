@@ -5,7 +5,7 @@ import discord
 
 # Red
 from redbot.core import commands
-from redbot.core.utils.chat_formatting import pagify
+from redbot.core.utils.menus import DEFAULT_CONTROLS, menu
 
 # Libs
 import aiohttp
@@ -73,12 +73,19 @@ class Animal(BaseCog):
                 breed_list = []
                 for key, val in result.items():
                     if val:  # does the breed have different types?
-                        breed_list.append(f"{key} ({val})")
+                        for breed_type in val:
+                            breed_list.append(f"{key} ({val})")
                     else:
                         breed_list.append(key)
-                message = "**Breeds list**\n" + ",".join(breed_list)
-                for page in pagify(message):
-                    await ctx.send(page)
+                embed_pages = []
+                for page in pagify(", ".join(breed_list)m delims=[","]):
+                    embed = discord.Embed(
+                        title="Breeds list",
+                        description=page,
+                        color=await ctx.embed_colour()
+                    )
+                    embed_pages.append(embed)
+                await menu(ctx, embed_pages, DEFAULT_CONTROLS)
             except Exception as e:
                 await ctx.send(self.error_message)
 
