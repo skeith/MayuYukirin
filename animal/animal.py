@@ -63,7 +63,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def dog(self, ctx, *, breed: str):
+    async def dog(self, ctx, breed: str):
         """Shows a breed of dog.
         
         Use the breed argument to display a specific breed of dog.
@@ -111,21 +111,42 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def dogs(self, ctx, amount : int = 5):
+    async def dogs(self, ctx, breed: str, amount : int = 5):
         """Throws a dog bomb!
 
-        Defaults to 5, max is 10"""
+        The amount defaults to 5, max is 10.
+
+        Use the breed argument to display a specific breed of dog.
+        You can provide "random" for a random breed.
+        
+        You can also provide "list" for a list of all 
+        available breeds.
+        """
+        if not await ctx.embed_requested():
+            await ctx.send("I need to be able to send embeds for this command.")
+            return
+        if breed.lower() == "random":
+            api = self.dogapi
+        else:
+            api = self.dog_breed_api.format(breed)
         results = []
         if amount > 10 or amount < 1:
-            amount = 5
-        try:
-            for x in range(0,amount):
-                async with self.session.get(self.dogapi) as r:
+            amount = 5 
+        for x in range(0,amount):
+            try:
+                async with self.session.get(api) as r:
                     api_result = await r.json()
                     results.append(api_result['message'])
-            await ctx.send("\n".join(results))
-        except:
-            await ctx.send(self.error_message)
+            except Exception:
+                return await ctx.send(self.error_message)
+        
+        embed_pages = []
+        for i in results:
+            embed = discord.Embed(color=await ctx.embed_colour())
+            embed.set_image(url=i)
+            embed.set_footer(text=f"Page {results.index(i)+1}/{len(results)}")
+            embed_pages.append(embed)
+        await menu(ctx, embed_pages, DEFAULT_CONTROLS)
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
