@@ -78,6 +78,10 @@ class Animal(BaseCog):
                     else:
                         breed_list.append(key)
                 await ctx.send("**Breeds list**\n" + "\n".join(breed_list))
+            except Exception:
+                await ctx.send(self.error_message)
+
+            return
                 
         if breed.lower() == "random":
             api = self.dogapi
