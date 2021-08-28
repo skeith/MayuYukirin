@@ -70,9 +70,8 @@ class Animal(BaseCog):
             try:
                 async with self.session.get("https://dog.ceo/api/breeds/list/all") as r:
                     result = await r.json()
-                loaded = json.load(result)
                 breed_list = []
-                for key, val in loaded.items():
+                for key, val in result.items():
                     if val:  # does the breed have different types?
                         breed_list.append(f"{key} ({val})")
                     else:
