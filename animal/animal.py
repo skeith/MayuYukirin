@@ -73,12 +73,13 @@ class Animal(BaseCog):
                 loaded = json.loads(result)
                 breed_list = []
                 for key, val in loaded.items():
-                    if val: # does the breed have different types?
+                    if val:  # does the breed have different types?
                         breed_list.append(f"{key} ({val})")
                     else:
                         breed_list.append(key)
                 await ctx.send("**Breeds list**\n" + "\n".join(breed_list))
-            except Exception:
+            except Exception as e:
+                print(e.__class__.__name__, str(e), sep=": ")
                 await ctx.send(self.error_message)
 
             return
