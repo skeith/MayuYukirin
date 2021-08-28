@@ -89,7 +89,7 @@ class Animal(BaseCog):
                 for page in c:
                     embed = discord.Embed(
                         title="Breeds list",
-                        description=box("\n".join(x.capitalize() for x in page), lang="prolog"),
+                        description=box("\n".join(page), lang="fix"),
                         color=await ctx.embed_colour()
                     )
                     embed.set_footer(text=f"Page {c.index(page)+1}/{len(c)}")
