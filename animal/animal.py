@@ -5,10 +5,10 @@ import discord
 
 # Red
 from redbot.core import commands
+from redbot.core.utils.chat_formatting import pagify
 
 # Libs
 import aiohttp
-import json
 
 BaseCog = getattr(commands, "Cog", object)
 
@@ -76,9 +76,10 @@ class Animal(BaseCog):
                         breed_list.append(f"{key} ({val})")
                     else:
                         breed_list.append(key)
-                await ctx.send("**Breeds list**\n" + "\n".join(breed_list))
+                message = "**Breeds list**\n" + ",".join(breed_list)
+                for page in pagify(message):
+                    await ctx.send(page)
             except Exception as e:
-                print(e.__class__.__name__, str(e), sep=": ")
                 await ctx.send(self.error_message)
 
             return
