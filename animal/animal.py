@@ -73,6 +73,9 @@ class Animal(BaseCog):
         available breeds.
         """
         if breed.lower() == "list":
+            if not await ctx.embed_requested():
+                await ctx.send("I need to be able to send embeds to show the list.")
+                return
             try:
                 async with self.session.get("https://dog.ceo/api/breeds/list/all") as r:
                     result = await r.json()
