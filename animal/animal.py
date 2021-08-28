@@ -8,6 +8,7 @@ from redbot.core import commands
 
 # Libs
 import aiohttp
+import json
 
 BaseCog = getattr(commands, "Cog", object)
 
@@ -60,8 +61,24 @@ class Animal(BaseCog):
         """Shows a breed of dog.
         
         Use the breed argument to display a specific breed of dog.
-        You can provide random for a random breed.
+        You can provide "random" for a random breed.
+        
+        You can also provide "list" for a list of all 
+        available breeds.
         """
+        if breed.lower() == "list":
+            try:
+                async with self.session.get("https://dog.ceo/api/breeds/list/all") as r:
+                    result = await r.json()
+                loaded = json.loads(result)
+                breed_list = []
+                for key, val in loaded.items():
+                    if val: # does the breed have different types?
+                        breed_list.append(f"{key} ({val})")
+                    else:
+                        breed_list.append(key)
+                await ctx.send("**Breeds list**\n" + "\n".join(breed_list))
+                
         if breed.lower() == "random":
             api = self.dogapi
         else:
