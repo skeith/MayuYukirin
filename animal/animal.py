@@ -5,12 +5,18 @@ import discord
 
 # Red
 from redbot.core import commands
+from redbot.core.utils.chat_formatting import box, humanize_list, pagify
 from redbot.core.utils.menus import DEFAULT_CONTROLS, menu
 
 # Libs
 import aiohttp
 
 BaseCog = getattr(commands, "Cog", object)
+
+
+def chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
 
 
 class Animal(BaseCog):
@@ -57,7 +63,7 @@ class Animal(BaseCog):
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def dog(self, ctx, breed: str):
+    async def dog(self, ctx, *, breed: str):
         """Shows a breed of dog.
         
         Use the breed argument to display a specific breed of dog.
@@ -70,23 +76,23 @@ class Animal(BaseCog):
             try:
                 async with self.session.get("https://dog.ceo/api/breeds/list/all") as r:
                     result = await r.json()
-                breed_list = []
-                for key, val in result.items():
-                    if val:  # does the breed have different types?
-                        for breed_type in val:
-                            breed_list.append(f"{key} ({val})")
-                    else:
-                        breed_list.append(key)
+                    result = result["message"]
+                    print(type(result))
+                breed_list = [i for i, _ in filter(lambda x: not bool(x[-1]), list(result.items()))]
                 embed_pages = []
-                for page in pagify(", ".join(breed_list), delims=[","]):
+                print(breed_list)
+                c = list(chunks(breed_list, 10))
+                for page in c:
                     embed = discord.Embed(
                         title="Breeds list",
-                        description=page,
+                        description=box("\n".join(x.capitalize() for x in page), lang="prolog"),
                         color=await ctx.embed_colour()
                     )
+                    embed.set_footer(text=f"Page {c.index(page)+1}/{len(c)}")
                     embed_pages.append(embed)
                 await menu(ctx, embed_pages, DEFAULT_CONTROLS)
             except Exception as e:
+                await ctx.send(e)
                 await ctx.send(self.error_message)
 
             return
