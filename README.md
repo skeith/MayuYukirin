@@ -46,7 +46,7 @@ Once installation done (the bot will tell you when the installation is finished 
 
 | Cog Name | Description | Note |
 | -------- | ----------- | ---- |
-| animal | <details><summary>Post random animal picture(s).</summary> Allows you to post these animal : cat, dog, fox, pug.</details> | |
+| animal | <details><summary>Post random animal picture(s).</summary> Allows you to post these animal : cat, dog (support breed name as argument), fox</details> | |
 | avatar | <details><summary>Simply return user's avatar URL.</summary> Sorry to fail your expectation. This cog has no extra description.</details> | |
 | doujin | <details><summary>Post random Doujin.</summary> Fetch post from : nhentai, tsumino, hbrowse.</details> | Must use NSFW channel. |
 | pda | <details><summary>Public Display of Affection.</summary> This allow you to show your affection to other member with animated GIF. Currently only have `pat` command</details> | |
