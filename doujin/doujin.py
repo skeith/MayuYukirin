@@ -38,9 +38,8 @@ class Doujin(BaseCog):
     async def tsumino(self, ctx):
         """Sends a random doujin"""
 
-        url = "http://www.tsumino.com/Browse/Random"
-        async with self.session.get(url) as r:
-            await ctx.send(r.url)
+	# url preview unavailable
+        await ctx.send("https://www.tsumino.com/random/")
 			
     @doujin.command()
     async def hbrowse(self, ctx):
