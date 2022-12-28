@@ -28,7 +28,6 @@ class Animal(BaseCog):
         self.catapi = "https://shibe.online/api/cats"
         self.dogapi = "https://dog.ceo/api/breeds/image/random"
         self.foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
-        self.roarapi = "http://randombig.cat/roar.json"
         self.dog_breed_api = "https://dog.ceo/api/breed/{}/images/random"
         self.error_message = "An API error occured. Probably just a hiccup.\nIf this error persist for several days, please report it."
 
@@ -191,34 +190,6 @@ class Animal(BaseCog):
                 async with self.session.get(self.pugapi) as r:
                     api_result = await r.json()
                     results.append(api_result['message'])
-            await ctx.send("\n".join(results))
-        except:
-            await ctx.send(self.error_message)
-
-    @commands.command()
-    @commands.cooldown(1, 60, commands.BucketType.guild)
-    async def bigcat(self, ctx):
-        """Shows a bigcat"""
-        try:
-            async with self.session.get(self.roarapi) as r:
-                result = await r.json()
-            await ctx.send(result['url'])
-        except:
-            await ctx.send(self.error_message)
-
-    @commands.command()
-    @commands.cooldown(1, 120, commands.BucketType.guild)
-    async def bigcats(self, ctx, amount : int = 5):
-        """Throws a bigcats bomb!
-        Defaults to 5, max is 10"""
-        results = []
-        if amount > 10 or amount < 1:
-            amount = 5
-        try:
-            for x in range(0,amount):
-                async with self.session.get(self.roarapi) as r:
-                    api_result = await r.json()
-                    results.append(api_result['url'])
             await ctx.send("\n".join(results))
         except:
             await ctx.send(self.error_message)
