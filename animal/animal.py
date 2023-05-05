@@ -27,7 +27,7 @@ class Animal(BaseCog):
         self.session = aiohttp.ClientSession()
         self.catapi = "https://shibe.online/api/cats"
         self.dogapi = "https://dog.ceo/api/breeds/image/random"
-        self.foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
+        self.foxapi = "https://wohlsoft.ru/images/foxybot/randomfox.php"
         self.dog_breed_api = "https://dog.ceo/api/breed/{}/images/random"
         self.error_message = "An API error occured. Probably just a hiccup.\nIf this error persist for several days, please report it."
 
