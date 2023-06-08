@@ -5,13 +5,11 @@ import discord
 
 # Red
 from redbot.core import commands
-from redbot.core.utils.chat_formatting import box, humanize_list
-from redbot.core.utils.menus import DEFAULT_CONTROLS, menu
+from redbot.core.utils.chat_formatting import box
+from redbot.core.utils.menus import menu
 
 # Libs
 import aiohttp
-
-BaseCog = getattr(commands, "Cog", object)
 
 
 def chunks(l, n):
@@ -19,7 +17,7 @@ def chunks(l, n):
         yield l[i:i + n]
 
 
-class Animal(BaseCog):
+class Animal(commands.Cog):
     """Animal commands."""
 
     def __init__(self, bot):
@@ -30,6 +28,9 @@ class Animal(BaseCog):
         self.foxapi = "http://wohlsoft.ru/images/foxybot/randomfox.php"
         self.dog_breed_api = "https://dog.ceo/api/breed/{}/images/random"
         self.error_message = "An API error occured. Probably just a hiccup.\nIf this error persist for several days, please report it."
+
+    async def cog_unload(self):
+        await self.session.close()
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -93,7 +94,7 @@ class Animal(BaseCog):
                     )
                     embed.set_footer(text=f"Page {c.index(page)+1}/{len(c)}")
                     embed_pages.append(embed)
-                await menu(ctx, embed_pages, DEFAULT_CONTROLS)
+                await menu(ctx, embed_pages)
 
             return
                 
@@ -145,7 +146,7 @@ class Animal(BaseCog):
             embed.set_image(url=i)
             embed.set_footer(text=f"Page {results.index(i)+1}/{len(results)}")
             embed_pages.append(embed)
-        await menu(ctx, embed_pages, DEFAULT_CONTROLS)
+        await menu(ctx, embed_pages)
 
     @commands.command()
     @commands.cooldown(1, 60, commands.BucketType.guild)
@@ -193,8 +194,3 @@ class Animal(BaseCog):
             await ctx.send("\n".join(results))
         except:
             await ctx.send(self.error_message)
-
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
-
-    __del__ = cog_unload

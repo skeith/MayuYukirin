@@ -6,13 +6,8 @@ import discord
 # Red
 from redbot.core import commands
 
-# Libs
 
-
-BaseCog = getattr(commands, "Cog", object)
-
-
-class Avatar(BaseCog):
+class Avatar(commands.Cog):
     """Get user's avatar URL."""
 
     @commands.command()
@@ -27,9 +22,6 @@ class Avatar(BaseCog):
         if not user:
             user = author
 
-        if user.is_avatar_animated():
-            url = user.avatar_url_as(format="gif")
-        if not user.is_avatar_animated():
-            url = user.avatar_url_as(static_format="png")
+        url = user.avatar.with_static_format("png")
 
-        await ctx.send("{}'s Avatar URL : {}".format(user.name, url))
+        await ctx.send(f"{user}'s Avatar URL : {url}")

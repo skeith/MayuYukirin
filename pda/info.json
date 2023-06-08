@@ -6,5 +6,5 @@
     "description" : "Show your affection to other member. Current version only allow you to pat other member",
     "disabled" : false,
     "tags" : ["love", "affection", "pat"],
-    "min_python_version": [3, 6, 0]
+    "min_bot_version": "3.5.0"
 }
