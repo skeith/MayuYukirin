@@ -1,5 +1,5 @@
 from .pda import PDA
 
 
-def setup(bot):
-    bot.add_cog(PDA(bot))
+async def setup(bot):
+    await bot.add_cog(PDA(bot))

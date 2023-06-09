@@ -1,5 +1,5 @@
 from .doujin import Doujin
 
 
-def setup(bot):
-    bot.add_cog(Doujin(bot))
+async def setup(bot):
+    await bot.add_cog(Doujin(bot))

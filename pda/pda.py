@@ -9,8 +9,6 @@ from redbot.core import commands
 # Libs 
 from random import choice as rnd
 
-BaseCog = getattr(commands, "Cog", object)
-
 __version__ = "2018.9.0"
 __author__ = "Yukirin"
 
@@ -51,7 +49,7 @@ patmsgs = [
 ]
 
 
-class PDA(BaseCog):
+class PDA(commands.Cog):
     """Public Display of Affection ~!"""
 
     def __init__(self, bot):
